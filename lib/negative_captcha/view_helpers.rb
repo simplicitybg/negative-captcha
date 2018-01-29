@@ -96,7 +96,7 @@ module ActionView
           options
         ) +
         content_tag('div', :style => negative_captcha.css) do
-          number_field_tag(field, '', :tabindex => '999')
+          number_field_tag(field, '', :tabindex => '999', :autocomplete => SecureRandom.hex(10))
         end.html_safe
       end
 
@@ -107,7 +107,7 @@ module ActionView
           options
         ) +
         content_tag('div', :style => negative_captcha.css) do
-          number_field_tag(field, '', :tabindex => '999')
+          number_field_tag(field, '', :tabindex => '999', :autocomplete => SecureRandom.hex(10))
         end.html_safe
       end
 
@@ -118,7 +118,7 @@ module ActionView
           options
         ) +
         content_tag('div', :style => negative_captcha.css) do
-          number_field_tag(field, '', :tabindex => '999')
+          number_field_tag(field, '', :tabindex => '999', :autocomplete => SecureRandom.hex(10))
         end.html_safe
       end
     end
