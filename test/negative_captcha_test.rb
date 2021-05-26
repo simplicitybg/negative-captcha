@@ -154,14 +154,18 @@ class NegativeCaptchaTest < Test::Unit::TestCase
 
   def test_default_css_styles_present_in_negative_text_field
     captcha = NegativeCaptcha.new(:fields => [:name])
-    html = ActionView::Base.new.negative_text_field_tag(captcha, :name)
+    html = ActionView::Base.new(
+      ActionView::Base.build_lookup_context(ActionController::Base.view_paths)
+    ).negative_text_field_tag(captcha, :name)
     assert html.match(/style="position: absolute; left: -2000px;"/), "Expected HTML to contain 'position: absolute; left: -2000px;', got #{html}"
   end
 
   def test_when_set_overridden_css_styles_present_in_negative_text_field
     captcha = NegativeCaptcha.new(:fields => [:name])
     captcha.css = "display: none"
-    html = ActionView::Base.new.negative_text_field_tag(captcha, :name)
+    html = ActionView::Base.new(
+      ActionView::Base.build_lookup_context(ActionController::Base.view_paths)
+    ).negative_text_field_tag(captcha, :name)
     assert html.match(/style="#{captcha.css}"/), "Expected HTML to contain '#{captcha.css}', got #{html}"
   end
 end
