@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name        = "negative_captcha"
-  s.version     = "0.4"
+  s.version     = "0.5"
   s.authors     = ["Erik Peterson"]
   s.email       = ["erik@subwindow.com"]
   s.homepage    = "http://github.com/subwindow/negative-captcha"
@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
   ]
   s.require_paths = ['lib/']
 
-  s.add_dependency 'actionpack'
-  s.add_dependency 'activesupport'
+  s.add_dependency 'actionpack', '~> 6.0.0'
+  s.add_dependency 'activesupport', '~> 6.0.0'
 end
